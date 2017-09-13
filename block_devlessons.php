@@ -39,12 +39,14 @@ class block_devlessons extends block_base {
         $this->content->text = html_writer::tag('p', get_string('blockcontent', 'block_devlessons'));
         $this->content->text .= html_writer::tag('p', get_string('greeting', 'block_devlessons', fullname($USER)));
         // Course id 1 is the site home course.
+        $urlparams = array();
         if ($COURSE != null && $COURSE->id != 1) {
             $this->content->text .= html_writer::tag('p', get_string('onacoursepage', 'block_devlessons', $COURSE->fullname));
+            $urlparams['courseid'] = $COURSE->id;
         } else {
             $this->content->text .= html_writer::tag('p', get_string('notonacoursepage', 'block_devlessons'));
         }
-        $standalonepageurl = new moodle_url('/blocks/devlessons/standalone.php');
+        $standalonepageurl = new moodle_url('/blocks/devlessons/standalone.php', $urlparams);
         $this->content->text .= html_writer::link($standalonepageurl, get_string('standalonepage', 'block_devlessons'));
         $this->content->footer = html_writer::tag('p', get_string('blockfooter', 'block_devlessons'));
 

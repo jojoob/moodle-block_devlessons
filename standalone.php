@@ -23,8 +23,16 @@
 
 require_once('../../config.php');
 
+$urlparams = array();
+
+$courseid = optional_param('courseid', null, PARAM_INT);
+if ($courseid != null) {
+    $course = get_course($courseid);
+    $urlparams['courseid'] = $course->id;
+}
+
 $context = context_system::instance();
-$url = new moodle_url('/blocks/devlessons/standalone.php');
+$url = new moodle_url('/blocks/devlessons/standalone.php', $urlparams);
 
 // Set the page's context, url and layout is required.
 $PAGE->set_context($context);
@@ -39,6 +47,10 @@ echo $OUTPUT->header();
 
 echo $OUTPUT->heading(get_string('standalonepageheading', 'block_devlessons'));
 echo html_writer::tag('p', get_string('standalonepagecontent', 'block_devlessons'));
+
+if (isset($course)) {
+    echo $OUTPUT->heading(get_string('courseinfoheading', 'block_devlessons', $course->fullname));
+}
 
 // Output ends here.
 echo $OUTPUT->footer();

@@ -36,3 +36,4 @@ $string['onacoursepage'] = 'You are on a course page, course name: {$a}.';
 $string['standalonepage'] = 'Standalone Page';
 $string['standalonepageheading'] = 'Test';
 $string['standalonepagecontent'] = 'Lorem ipsum dolor sit amet';
+$string['courseinfoheading'] = 'Course Information for Course: {$a}';
