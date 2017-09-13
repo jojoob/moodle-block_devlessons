@@ -37,3 +37,4 @@ $string['standalonepage'] = 'Standalone Page';
 $string['standalonepageheading'] = 'Test';
 $string['standalonepagecontent'] = 'Lorem ipsum dolor sit amet';
 $string['courseinfoheading'] = 'Course Information for Course: {$a}';
+$string['sectionnameempty'] = '[no section name set]';

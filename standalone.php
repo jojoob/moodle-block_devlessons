@@ -51,6 +51,16 @@ echo html_writer::tag('p', get_string('standalonepagecontent', 'block_devlessons
 if (isset($course)) {
     echo $OUTPUT->heading(get_string('courseinfoheading', 'block_devlessons', $course->fullname));
     echo html_writer::tag('p', get_string('startdate') . ': ' . userdate($course->startdate));
+
+    $coursemodinfo = get_fast_modinfo($course);
+    $sections = array();
+    foreach ($coursemodinfo->get_section_info_all() as $section) {
+        $sections[] = $section->name != null ? $section->name : get_string('sectionnameempty', 'block_devlessons');
+    }
+    echo html_writer::start_tag('p');
+    echo get_string('sections');
+    echo html_writer::alist($sections, null, 'ol');
+    echo html_writer::end_tag('p');
 }
 
 // Output ends here.
