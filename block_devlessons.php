@@ -29,7 +29,7 @@ class block_devlessons extends block_base {
     }
 
     public function get_content() {
-        global $USER;
+        global $USER, $COURSE;
 
         if ($this->content !== null) {
             return $this->content;
@@ -38,6 +38,12 @@ class block_devlessons extends block_base {
         $this->content =  new stdClass;
         $this->content->text = html_writer::tag('p', get_string('blockcontent', 'block_devlessons'));
         $this->content->text .= html_writer::tag('p', get_string('greeting', 'block_devlessons', fullname($USER)));
+        // Course id 1 is the site home course.
+        if ($COURSE != null && $COURSE->id != 1) {
+            $this->content->text .= html_writer::tag('p', get_string('onacoursepage', 'block_devlessons', $COURSE->fullname));
+        } else {
+            $this->content->text .= html_writer::tag('p', get_string('notonacoursepage', 'block_devlessons'));
+        }
         $this->content->footer = html_writer::tag('p', get_string('blockfooter', 'block_devlessons'));
 
         return $this->content;
