@@ -26,3 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'MoodleDevLessons block';
 $string['devlessons:addinstance'] = 'Add a new MoodleDevLessons block';
 $string['devlessons:myaddinstance'] = 'Add a new MoodleDevLessons block to the My Moodle page';
+
+$string['blockcontent'] = 'The content of our MoodleDevLessons block!';
+$string['blockfooter'] = 'Footer here...';
