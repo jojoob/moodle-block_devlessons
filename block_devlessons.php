@@ -27,4 +27,16 @@ class block_devlessons extends block_base {
     public function init() {
         $this->title = get_string('pluginname', 'block_devlessons');
     }
+
+    public function get_content() {
+        if ($this->content !== null) {
+            return $this->content;
+        }
+
+        $this->content =  new stdClass;
+        $this->content->text = html_writer::tag('p', 'The content of our MoodleDevLessons block!');
+        $this->content->footer = html_writer::tag('p', 'Footer here...');
+
+        return $this->content;
+    }
 }
