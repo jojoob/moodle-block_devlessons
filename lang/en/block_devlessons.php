@@ -29,3 +29,4 @@ $string['devlessons:myaddinstance'] = 'Add a new MoodleDevLessons block to the M
 
 $string['blockcontent'] = 'The content of our MoodleDevLessons block!';
 $string['blockfooter'] = 'Footer here...';
+$string['greeting'] = 'Hello {$a}!';

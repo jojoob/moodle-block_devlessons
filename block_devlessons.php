@@ -29,12 +29,15 @@ class block_devlessons extends block_base {
     }
 
     public function get_content() {
+        global $USER;
+
         if ($this->content !== null) {
             return $this->content;
         }
 
         $this->content =  new stdClass;
         $this->content->text = html_writer::tag('p', get_string('blockcontent', 'block_devlessons'));
+        $this->content->text .= html_writer::tag('p', get_string('greeting', 'block_devlessons', fullname($USER)));
         $this->content->footer = html_writer::tag('p', get_string('blockfooter', 'block_devlessons'));
 
         return $this->content;
