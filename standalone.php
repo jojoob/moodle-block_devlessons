@@ -41,6 +41,7 @@ $PAGE->set_pagelayout('standard');
 // A title and heading are optional.
 $PAGE->set_title(get_string('standalonepage', 'block_devlessons'));
 $PAGE->set_heading(get_string('standalonepage', 'block_devlessons'));
+$PAGE->navbar->add(get_string('standalonepage', 'block_devlessons'), $PAGE->url);
 
 // Output starts here.
 echo $OUTPUT->header();
