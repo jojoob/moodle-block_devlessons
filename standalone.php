@@ -50,6 +50,7 @@ echo html_writer::tag('p', get_string('standalonepagecontent', 'block_devlessons
 
 if (isset($course)) {
     echo $OUTPUT->heading(get_string('courseinfoheading', 'block_devlessons', $course->fullname));
+    echo html_writer::tag('p', get_string('startdate') . ': ' . userdate($course->startdate));
 }
 
 // Output ends here.
