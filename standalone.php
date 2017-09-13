@@ -21,18 +21,24 @@
  * @author     Johannes Burk <johannes.burk@sudile.com>
  */
 
-defined('MOODLE_INTERNAL') || die();
+require_once('../../config.php');
 
-$string['pluginname'] = 'MoodleDevLessons block';
-$string['devlessons:addinstance'] = 'Add a new MoodleDevLessons block';
-$string['devlessons:myaddinstance'] = 'Add a new MoodleDevLessons block to the My Moodle page';
+$context = context_system::instance();
+$url = new moodle_url('/blocks/devlessons/standalone.php');
 
-$string['blockcontent'] = 'The content of our MoodleDevLessons block!';
-$string['blockfooter'] = 'Footer here...';
-$string['greeting'] = 'Hello {$a}!';
-$string['notonacoursepage'] = 'This is not a course page.';
-$string['onacoursepage'] = 'You are on a course page, course name: {$a}.';
+// Set the page's context, url and layout is required.
+$PAGE->set_context($context);
+$PAGE->set_url($url);
+$PAGE->set_pagelayout('standard');
+// A title and heading are optional.
+$PAGE->set_title(get_string('standalonepage', 'block_devlessons'));
+$PAGE->set_heading(get_string('standalonepage', 'block_devlessons'));
 
-$string['standalonepage'] = 'Standalone Page';
-$string['standalonepageheading'] = 'Test';
-$string['standalonepagecontent'] = 'Lorem ipsum dolor sit amet';
+// Output starts here.
+echo $OUTPUT->header();
+
+echo $OUTPUT->heading(get_string('standalonepageheading', 'block_devlessons'));
+echo html_writer::tag('p', get_string('standalonepagecontent', 'block_devlessons'));
+
+// Output ends here.
+echo $OUTPUT->footer();

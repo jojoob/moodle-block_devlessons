@@ -44,6 +44,8 @@ class block_devlessons extends block_base {
         } else {
             $this->content->text .= html_writer::tag('p', get_string('notonacoursepage', 'block_devlessons'));
         }
+        $standalonepageurl = new moodle_url('/blocks/devlessons/standalone.php');
+        $this->content->text .= html_writer::link($standalonepageurl, get_string('standalonepage', 'block_devlessons'));
         $this->content->footer = html_writer::tag('p', get_string('blockfooter', 'block_devlessons'));
 
         return $this->content;
